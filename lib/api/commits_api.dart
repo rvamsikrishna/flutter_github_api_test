@@ -5,7 +5,7 @@ import 'package:github_commit_log_app/models/commit/commit.dart';
 
 const String base_url = 'https://api.github.com/repos';
 const String user = 'rvamsikrishna';
-const String repo = 'inview_notifier_list';
+const String repo = 'flutter_github_api_test';
 
 class CommitsApi {
   static Future<List<Commit>> fetchCommits({int page = 0}) async {
