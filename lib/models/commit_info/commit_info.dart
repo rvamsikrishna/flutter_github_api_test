@@ -5,6 +5,7 @@ part 'commit_info.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class CommitInfo {
+  @JsonKey(name: 'author')
   final CommitAuthorInfo commitAuthorInfo;
   final String message;
   @JsonKey(name: 'comment_count')

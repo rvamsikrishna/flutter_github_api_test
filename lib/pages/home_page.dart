@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:github_commit_log_app/models/commits/commits_model.dart';
+import 'package:github_commit_log_app/widgets/commits_listview.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -18,7 +21,12 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 5.0),
             Divider(height: 2.0),
             Expanded(
-              child: Container(),
+              child: ChangeNotifierProvider(
+                create: (_) {
+                  return CommitsModel();
+                },
+                child: CommitsListView(),
+              ),
             )
           ],
         ),

@@ -8,9 +8,9 @@ part of 'commit.dart';
 
 Commit _$CommitFromJson(Map<String, dynamic> json) {
   return Commit(
-    commitInfo: json['commitInfo'] == null
+    commitInfo: json['commit'] == null
         ? null
-        : CommitInfo.fromJson(json['commitInfo'] as Map<String, dynamic>),
+        : CommitInfo.fromJson(json['commit'] as Map<String, dynamic>),
     author: json['author'] == null
         ? null
         : Author.fromJson(json['author'] as Map<String, dynamic>),
@@ -19,7 +19,7 @@ Commit _$CommitFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$CommitToJson(Commit instance) => <String, dynamic>{
-      'commitInfo': instance.commitInfo?.toJson(),
+      'commit': instance.commitInfo?.toJson(),
       'author': instance.author?.toJson(),
       'url': instance.url,
     };

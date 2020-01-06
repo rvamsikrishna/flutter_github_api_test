@@ -6,6 +6,7 @@ part 'commit.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Commit {
+  @JsonKey(name: 'commit')
   final CommitInfo commitInfo;
   final Author author;
   final String url;

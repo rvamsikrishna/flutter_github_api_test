@@ -8,10 +8,9 @@ part of 'commit_info.dart';
 
 CommitInfo _$CommitInfoFromJson(Map<String, dynamic> json) {
   return CommitInfo(
-    commitAuthorInfo: json['commitAuthorInfo'] == null
+    commitAuthorInfo: json['author'] == null
         ? null
-        : CommitAuthorInfo.fromJson(
-            json['commitAuthorInfo'] as Map<String, dynamic>),
+        : CommitAuthorInfo.fromJson(json['author'] as Map<String, dynamic>),
     message: json['message'] as String,
     commentsCount: json['comment_count'] as int,
   );
@@ -19,7 +18,7 @@ CommitInfo _$CommitInfoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$CommitInfoToJson(CommitInfo instance) =>
     <String, dynamic>{
-      'commitAuthorInfo': instance.commitAuthorInfo?.toJson(),
+      'author': instance.commitAuthorInfo?.toJson(),
       'message': instance.message,
       'comment_count': instance.commentsCount,
     };
