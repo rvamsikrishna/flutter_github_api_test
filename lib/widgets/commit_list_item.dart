@@ -18,7 +18,7 @@ class CommitListItem extends StatelessWidget {
           authorExists ? Avatar(avatarUrl: commit.author.avatarUrl) : Avatar(),
       title: Text(
         commit.commitInfo.message,
-        maxLines: 1,
+        maxLines: 2,
       ),
       subtitle: Row(
         children: <Widget>[
