@@ -9,6 +9,8 @@
 * Click on the commit to open the commit details in a new page.
 
 ## Running the app
+> Flutter stable version 1.12.13+hotfix.5 is used to debug this app
+
 1. Clone this repo
   ```
   git clone https://github.com/rvamsikrishna/flutter_github_api_test.git
