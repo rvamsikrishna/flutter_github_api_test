@@ -9,6 +9,7 @@ class Commit {
   @JsonKey(name: 'commit')
   final CommitInfo commitInfo;
   final Author author;
+  @JsonKey(name: 'html_url')
   final String url;
 
   Commit({this.commitInfo, this.author, this.url});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_commit_log_app/models/commit/commit.dart';
+import 'package:github_commit_log_app/pages/commit_details_page.dart';
 import 'package:github_commit_log_app/widgets/avatar.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -39,6 +40,14 @@ class CommitListItem extends StatelessWidget {
               ],
             )
           : null,
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (BuildContext context) {
+          return CommitDetails(
+            url: commit.url,
+          );
+        }));
+      },
     );
   }
 }

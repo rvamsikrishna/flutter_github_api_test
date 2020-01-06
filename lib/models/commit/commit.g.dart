@@ -14,12 +14,12 @@ Commit _$CommitFromJson(Map<String, dynamic> json) {
     author: json['author'] == null
         ? null
         : Author.fromJson(json['author'] as Map<String, dynamic>),
-    url: json['url'] as String,
+    url: json['html_url'] as String,
   );
 }
 
 Map<String, dynamic> _$CommitToJson(Commit instance) => <String, dynamic>{
       'commit': instance.commitInfo?.toJson(),
       'author': instance.author?.toJson(),
-      'url': instance.url,
+      'html_url': instance.url,
     };
