@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Github commits'),
+      ),
+      body: Container(
+        padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              'Commits',
+              style: Theme.of(context).textTheme.title,
+            ),
+            SizedBox(height: 5.0),
+            Divider(height: 2.0),
+            Expanded(
+              child: Container(),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
