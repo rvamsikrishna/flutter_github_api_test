@@ -18,7 +18,12 @@ class CommitsModel extends ChangeNotifier {
     fetchCommits();
   }
 
-  Future<void> fetchCommits() async {
+  Future<void> fetchCommits({bool refresh = false}) async {
+    if (refresh) {
+      allCommitsFetched = false;
+      _fetchedPage = 0;
+      commits.clear();
+    }
     if (!allCommitsFetched) {
       loading = true;
       notifyListeners();

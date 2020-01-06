@@ -13,31 +13,36 @@ class CommitsListView extends StatelessWidget {
         if (commitsModel.loading) {
           return Center(child: CircularProgressIndicator());
         } else {
-          return InfiniteListView(
-            //+1 is to accomidate for the loading indicator at the bottom
-            //of list view when fetching more items
-            itemCount: commitsModel.allCommitsFetched
-                ? commitsModel.commits.length
-                : commitsModel.commits.length + 1,
-            itemBuilder: (BuildContext context, int index) {
-              final Commit commit = commitsModel.commits[index];
-
-              if (commitsModel.commits.length == index &&
-                  !commitsModel.allCommitsFetched) {
-                return Center(child: CircularProgressIndicator());
-              }
-
-              return CommitListItem(
-                commit: commit,
-              );
+          return RefreshIndicator(
+            onRefresh: () {
+              return commitsModel.fetchCommits(refresh: true);
             },
-            onEndReached: () {
-              //all commits are fetched
-              if (commitsModel.allCommitsFetched) return;
+            child: InfiniteListView(
+              //+1 is to accomidate for the loading indicator at the bottom
+              //of list view when fetching more items
+              itemCount: commitsModel.allCommitsFetched
+                  ? commitsModel.commits.length
+                  : commitsModel.commits.length + 1,
+              itemBuilder: (BuildContext context, int index) {
+                final Commit commit = commitsModel.commits[index];
 
-              //fetch more commits
-              commitsModel.fetchCommits();
-            },
+                if (commitsModel.commits.length == index &&
+                    !commitsModel.allCommitsFetched) {
+                  return Center(child: CircularProgressIndicator());
+                }
+
+                return CommitListItem(
+                  commit: commit,
+                );
+              },
+              onEndReached: () {
+                //all commits are fetched
+                if (commitsModel.allCommitsFetched) return;
+
+                //fetch more commits
+                commitsModel.fetchCommits();
+              },
+            ),
           );
         }
       },
