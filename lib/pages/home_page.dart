@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         title: Text('Github commits'),
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        padding: EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0),
         child: Column(
           children: <Widget>[
             Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_commit_log_app/models/commit/commit.dart';
 import 'package:github_commit_log_app/models/commits/commits_model.dart';
+import 'package:github_commit_log_app/widgets/commit_list_item.dart';
 import 'package:provider/provider.dart';
 
 class CommitsListView extends StatelessWidget {
@@ -15,12 +16,8 @@ class CommitsListView extends StatelessWidget {
             itemCount: commitsModel.commits.length,
             itemBuilder: (BuildContext context, int index) {
               final Commit commit = commitsModel.commits[index];
-              return ListTile(
-                title: Text(
-                  commit.commitInfo.message,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              return CommitListItem(
+                commit: commit,
               );
             },
             separatorBuilder: (BuildContext context, int index) {
